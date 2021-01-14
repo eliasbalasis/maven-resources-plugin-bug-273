@@ -1,18 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-    <modelVersion>4.0.0</modelVersion>
+	<modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.xxxxxxx.xxxx</groupId>
-    <artifactId>maven-resources-plugin-bug-273</artifactId>
+	<groupId>com.xxxxxxx.xxxx</groupId>
+	<artifactId>maven-resources-plugin-bug-273</artifactId>
 
-    <version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1-SNAPSHOT</version>
 
-    <packaging>jar</packaging>
+	<packaging>jar</packaging>
 
-    <properties>
+	<properties>
+
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+
+		<version.maven-resources-plugin>2.6</version.maven-resources-plugin>
+
+		<com.xxxxxxx.xxxx.root.build.environment.ENVIRONMENT_VARIABLE_WITH_SMALLER_LENGTH>${env.ENVIRONMENT_VARIABLE_WITH_SMALLER_LENGTH}</com.xxxxxxx.xxxx.root.build.environment.ENVIRONMENT_VARIABLE_WITH_SMALLER_LENGTH>
 		<com.xxxxxxx.xxxx.root.build.environment.CLOUD_AZURE_AKS_KUBERNETES_NODE_LABEL_AGENTPOOL_VALUE_TEST_XXXXXXXXXXX_NODE_IMPL_PRODUCT_SEGMENT_PROCESSOR>${env.CLOUD_AZURE_AKS_KUBERNETES_NODE_LABEL_AGENTPOOL_VALUE_TEST_XXXXXXXXXXX_NODE_IMPL_PRODUCT_SEGMENT_PROCESSOR}</com.xxxxxxx.xxxx.root.build.environment.CLOUD_AZURE_AKS_KUBERNETES_NODE_LABEL_AGENTPOOL_VALUE_TEST_XXXXXXXXXXX_NODE_IMPL_PRODUCT_SEGMENT_PROCESSOR>
 		<com.xxxxxxx.xxxx.root.build.environment.CLOUD_AZURE_AKS_KUBERNETES_NODE_LABEL_AGENTPOOL_VALUE_QA_XXXXXXXXXXX_NODE_IMPL_PRODUCT_SEGMENT_PROCESSOR>${env.CLOUD_AZURE_AKS_KUBERNETES_NODE_LABEL_AGENTPOOL_VALUE_QA_XXXXXXXXXXX_NODE_IMPL_PRODUCT_SEGMENT_PROCESSOR}</com.xxxxxxx.xxxx.root.build.environment.CLOUD_AZURE_AKS_KUBERNETES_NODE_LABEL_AGENTPOOL_VALUE_QA_XXXXXXXXXXX_NODE_IMPL_PRODUCT_SEGMENT_PROCESSOR>
 		<com.xxxxxxx.xxxx.root.build.environment.CLOUD_AZURE_AKS_KUBERNETES_NODE_LABEL_AGENTPOOL_VALUE_PRODUCTION_XXXXXXXXXXX_NODE_IMPL_PRODUCT_SEGMENT_PROCESSOR>${env.CLOUD_AZURE_AKS_KUBERNETES_NODE_LABEL_AGENTPOOL_VALUE_PRODUCTION_XXXXXXXXXXX_NODE_IMPL_PRODUCT_SEGMENT_PROCESSOR}</com.xxxxxxx.xxxx.root.build.environment.CLOUD_AZURE_AKS_KUBERNETES_NODE_LABEL_AGENTPOOL_VALUE_PRODUCTION_XXXXXXXXXXX_NODE_IMPL_PRODUCT_SEGMENT_PROCESSOR>
-    </properties>
+
+	</properties>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>${version.maven-resources-plugin}</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<configuration>
+					<propertiesEncoding>ISO-8859-1</propertiesEncoding>
+				</configuration>
+			</plugin>
+		</plugins>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+	</build>
 
 </project>
